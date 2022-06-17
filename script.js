@@ -1,3 +1,5 @@
+"use strict";
+
 function myFunction(){
     document.getElementById("demo").innerHTML = "Paragraph changed.";
 }
@@ -206,3 +208,241 @@ function arrayPush(){
 const points = new Array(40, 100, 1, 5, 25, 10);
 
 console.log(points.join("*"));
+
+
+points.splice(2,2,60,70);
+console.log(points);
+
+let sli = points.slice(2);
+console.log(sli);
+
+
+
+const veg = ["Banana", "Orange", "Apple", "Mango"];
+
+veg.sort();
+veg.reverse();
+console.log(veg);
+
+
+let sortnum = [40, 100, 1, 5, 25, 10];
+
+console.log(sortnum);
+
+sortnum.sort(function(a,b){
+    return a-b
+});
+console.log(sortnum);
+
+sortnum.sort(function(a,b){
+    return b -a
+});
+
+console.log(sortnum);
+
+const random = [40, 100, 1, 5, 25, 10];
+
+
+function randomNum(){
+    random.sort(function(){
+        return 0.5 - Math.random();
+    });
+    console.log(random);
+}
+
+
+console.log(myArrMax(random));
+
+function myArrMax(){
+    return Math.max.apply(null,random)
+}
+
+
+console.log(myArrMin());
+
+function myArrMin(){
+    return Math.min.apply(null,random)
+}
+
+
+
+
+
+const obcars = [
+    {type:"Volvo", year:2016},
+    {type:"Saab", year:2001},
+    {type:"BMW", year:2010}
+  ];
+
+    obcars.sort(function(a,b){
+        return a.year  - b.year;
+    })
+
+
+  console.log(obcars[0].type + " " + obcars[0].year);
+  console.log(obcars[1].type + " " + obcars[1].year);
+  console.log(obcars[2].type + " " + obcars[2].year);
+
+  const number = [45, 4, 9, 16, 25];
+    
+
+number.forEach(forFunction);
+
+  function forFunction(value,index,array){
+            console.log(value);
+  }
+
+  const numbers1 = [45, 4, 9, 16, 25];
+
+numbers1.map(doubleFun);
+
+  function doubleFun(value,index,array){
+            console.log(value * 2);
+  }
+
+  //leaning set method in javascript
+
+  const letters = new Set();
+ 
+
+  letters.add("anil");
+  letters.add("karan"); 
+  letters.add("rajan");
+  console.log(letters);
+  console.log(letters.size);
+
+
+  letters.forEach(function(value){
+            console.log(value);
+  });
+  
+  console.log("---------------");
+
+  for(const x of letters.values()){
+        console.log(x);
+  }
+
+
+  //learning new map 
+
+const mapfruits = new Map([
+    ["apples",500],
+    ["banana",300],
+    ["orange",200]
+]);
+
+mapfruits.set("grapes",600)
+    console.log(mapfruits);
+    console.log(mapfruits.size);
+
+
+
+    mapfruits.delete("banana");
+    console.log(mapfruits);
+
+
+    function scopfunction(){
+        carname = "volvo";
+    }
+
+var ds = 5;
+var hd = 6;
+    console.log(ds + hd);
+
+    useFunction();
+function useFunction(){
+    y = 3.14;
+    console.log(y);
+}
+    
+function showButton(){
+    var btn = "<button>hello</button>";
+    document.write(btn);
+}
+
+
+function thisFunction(){
+    console.log(this);
+}
+
+thisFunction();
+
+let arrorFunction = (a,b)=> a*b;
+
+console.log(arrorFunction(4,5));
+
+var hello;
+
+hello =(val)=>{
+    return "hello" + val;
+}
+
+console.log(hello(" universe world"));
+
+
+
+class Car{
+    constructor(name,year){
+        this.name = name;
+        this.year = year;
+    }
+
+age(x){
+    //let date = new Date();
+
+    return x - this.year;
+}
+
+}
+
+
+const mycar = new Car("Ford",2016);
+console.log(mycar.name);
+console.log(mycar.year);
+console.log(mycar.age(2018));
+
+
+//click on button and inset data in <li> tag in javascript
+
+let items = [];
+
+function insertValue(){
+
+    let inputVal = document.getElementById("txtfield").value;
+
+        if(inputVal == ''){
+            alert("Field is Required");
+        }
+        else{
+            items.push(inputVal);
+            document.getElementById("txtfield").value='';
+    
+            var str = '<ul>'
+    
+            items.forEach(function(item) {
+              str += '<li>'+ item + '</li>';
+            }); 
+            
+            str += '</ul>';
+            document.getElementById("list").innerHTML = str;
+        }
+
+}
+
+//click on image change image in javascript
+
+function changeImage(){
+   let image = document.getElementById("imageChange");
+    image.src="tree-736885__480.jpg";
+}
+
+
+
+let texts = '{"employees":[' +
+'{"firstName":"John","lastName":"Doe" },' +
+'{"firstName":"Anna","lastName":"Smith" },' +
+'{"firstName":"Peter","lastName":"Jones" }]}';
+
+
+const objjj = JSON.parse(texts);
+console.log(objjj.employees[0]);
