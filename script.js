@@ -446,3 +446,10 @@ let texts = '{"employees":[' +
 
 const objjj = JSON.parse(texts);
 console.log(objjj.employees[0]);
+
+
+//learning Array Destructing in javascript
+
+function getScrores(){
+    return [70,80,90];
+}
