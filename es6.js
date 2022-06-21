@@ -460,3 +460,119 @@ let as = 10;
     [as,bs] = [bs,as];
 
     console.log(as,bs);
+
+
+    const add=()=>{
+
+    }
+
+    // fetch("https://jsonplaceholder.typicode.com/users")
+    // .then((res) => res.json())
+    // .then((data)=> console.log(data.name));
+
+
+    const ca = {
+        name:'car',
+        start(){
+            console.log('start the ' + this.name);
+        },
+        speedUp(){
+            console.log('Speed up the ' + this.name);
+        },
+        stop(){
+            console.log('stop the ' + this.name);
+        }
+    };
+
+    const aircraft = {
+        name:'aircraft',
+        fly(){
+            console.log('fly');
+        }
+    };
+
+    ca.start.call(aircraft);
+    ca.speedUp.call(aircraft);
+
+
+
+    // fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
+    // .then((response)=>{
+    //     if(response.ok){
+    //         // console.log(response);
+    //         return response.json();
+    //     }
+    //     else{
+    //         throw new Error("network response error");
+    //     }
+    // }).then((data)=>{
+    //     console.log(data);
+    //     displayCocktail(data);
+    // })
+    // .catch((error)=>{
+    //     console.error("fetch error:", error);
+    // })
+
+
+
+    // function displayCocktail(data){
+    //    const cocktail =  data.drinks[0];
+    //    const cocktailName = cocktail.strDrink;
+
+    //    const cocktailDiv = document.getElementById("cocktails");
+    //    const heading= document.createElement("h1");
+    //     heading.innerHTML = cocktailName;
+    //    cocktailDiv.appendChild(heading);
+
+
+    //    //image print in html page 
+
+    //     const cocktailImg = document.createElement('img');
+    //    const imgAtt = cocktailImg.setAttribute('id','imageSet');
+    //     cocktailImg.src = cocktail.strDrinkThumb;
+    //     cocktailDiv.appendChild(cocktailImg);
+    //     document.imgAtt.style.backgroundImage = "url('"+ cocktail.strDrinkThumb +"')";
+
+
+
+    //    const cocktailIngrdients =  document.createElement('ul');
+    //         cocktailDiv.appendChild(cocktailIngrdients);
+
+
+    //         //const getIngredients =
+    //         //  Object.keys(cocktail).filter(function(ingredient){
+    //         //         ingredient.indexOf("strIngredient") == 0;
+    //         //  })
+          
+
+    // }
+
+    const base_url = "https://fakestoreapi.com/products";
+
+    fetch(base_url)
+    .then((data)=>{
+        //console.log(data);
+        return data.json();
+    })
+    .then((completeData)=>{
+        console.log(completeData);
+
+        let data1 = "";
+completeData.map((value)=>{
+data1 += `<div class="card col-md-3">
+    <img class="card-img-top" src=${value.image} alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">${value.title}</h5>
+      <p class="card-text">${value.description}</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>`;
+
+});
+           document.getElementById("cards").innerHTML = data1;
+    })
+    .catch((err)=>{
+        console.log(err);
+    })
+    
+
